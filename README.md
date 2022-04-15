@@ -16,3 +16,6 @@ q   w   e   r   t   y   u   i   o   p   a  --- dummy references <br />
 The result is: <br />
 "qlw tes r a tst i opathm" <br />
 And there you go, that will later be un-compressed.
+
+for later:
+commas and all that will later be cut out and won't be processed...
