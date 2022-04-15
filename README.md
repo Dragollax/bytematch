@@ -18,4 +18,4 @@ The result is: <br />
 And there you go, that will later be un-compressed.
 
 for later:
-commas and all that will later be cut out and won't be processed...
+commas and all that will later be cut out and won't be processed... can then later use huffman to further compress it 
