@@ -1,3 +1,3 @@
-# BytePressor 
+# ByteMatch
 
-Just gonna be an empty repository until I get an idea
+Will be a matching algorithm that matches items based off their attributes
