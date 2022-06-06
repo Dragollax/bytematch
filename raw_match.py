@@ -68,13 +68,13 @@ while i < len(current_user) or j < length:
             length = 0
             once = False
             continue
-"""         
+
     if j == length: #reset everything and move onto the next interest
         i += 1 
         j = 0 
         once = False
         length = 0
-"""
+
 final_matches = list(OrderedDict.fromkeys(raw_matches)) #removes duplicates in raw_matches
 
 
