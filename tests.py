@@ -48,4 +48,5 @@ __self = {
     ]
 }
 
-print(Match.complex_match(__self, test)) 
+#print(Match.complex_match(__self, test)) 
+print(Match.complex_match)

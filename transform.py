@@ -1,20 +1,22 @@
 #returns the users's interests or tags as keys to a dictionary with value of "placeholder"
+import copy
 def transform_user(user, value_type):
+    current_user = copy.deepcopy(user)
     if value_type == 'interest':
-        for interest in user['interests']:
-            user[interest] = "placeholder"
-        user.pop('interests')
-        user.pop('tags')
-        user.pop('username')
-        user.pop('profile_image')
-        user.pop('biography')
+        for interest in current_user['interests']:
+            current_user[interest] = "placeholder"
+        current_user.pop('interests')
+        current_user.pop('tags')
+        current_user.pop('username')
+        current_user.pop('profile_image')
+        current_user.pop('biography')
     if value_type == 'tag':
         for tag in user['tags']:
-            user[tag] = "placeholder"
-        user.pop('interests')
-        user.pop('tags')
-        user.pop('username')
-        user.pop('profile_image')
-        user.pop('biography')
+            current_user[tag] = "placeholder"
+        current_user.pop('interests')
+        current_user.pop('tags')
+        current_user.pop('username')
+        current_user.pop('profile_image')
+        current_user.pop('biography')
 
-    return user
+    return current_user
