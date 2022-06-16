@@ -71,10 +71,7 @@ _self = {
                 "coding"
             ]
 }
-print(_self.get('interests'))
-print("-----------------------------")
-for i in test:
-    print(i['interests'])
+
 
 passed = []
 once = False
@@ -108,31 +105,32 @@ class Match:
         #if not enough users, use recursion to get enough users, and append the existing users into passed
 
         results = {
-            "matchedUsers": matches,
+            "matched": matches,
         }
         return results
-    def quick_match(self, *args,  **kwargs):
-        _self = kwargs[0] 
-        queryset = kwargs[1]
-        modified_group = transform_user(_self, "interest")
+    def quick_match(*args,  **kwargs):
+        #data group for matching
+        #match_data = kwargs[0]
+        #target for matching
+        #target = args[0]
         i = 0 #will be used to iterate through interests
         j = 0 #will be used to iterate through the current user's interests
         once = False#just ot make sure we only assign inverted_group's length to length once
         length = 0
         raw_matches = []
         #this will stop the algo if we have reached the end of the user's interests. 
-        while i < len(_self.data['interests']) or j < length: 
+        while i < len(_self.get('interests')) or j < length: 
             #matchedInterests = []
             if once == False:
                 once = True
-                length = len(modified_group)
-            if _self.data['interests'][i] == list(modified_group.keys())[j]: #if the j'th value of inverted_group is equal to the i'th value of current_user
+                length = len(test2)
+            
+            if int(_self.get('interests')[i]) == int(list(test2.keys())[j]): #if the j'th value of inverted_group is equal to the i'th value of current_user
                 j += 1
-                users = modified_group[_self.data['interests'][i]] 
+                users = test2.get(str(_self.get('interests')[i]))
 
                 raw_matches.extend(users)
-                #raw_matches.extend([dict(item, **{'matchedInterest':matchedInterests}) for item in user])#add the values(people) of the dict into raw_matches
-                #NOTE: need to do .extend() to get all values of list in existing list
+
                     
             else: # if no matches, then move on onto the next interest in inverted_group
                 j+=1
@@ -152,10 +150,10 @@ class Match:
         #removes duplicates in raw_matches, now contains dictionaries that have matchedTags...but some DON'T have matchedTags
         cleaned_matches = [i for n, i in enumerate(raw_matches) if i not in raw_matches[n + 1:]] 
         #Here we take all the dictionaries with matchedTags, and save those into the final match list. Complete!
-        context= {
-            "matchedUsers": cleaned_matches,
-            "has_more": more_matches(request)
+        results= {
+            "matched": cleaned_matches,
         }
-        return Response(context)
+        return results
 
 print(Match.complex_match())
+print(Match.quick_match())
