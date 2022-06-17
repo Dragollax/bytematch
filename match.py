@@ -1,6 +1,7 @@
 from transform import transform_user
 import copy
-
+from transform import transform_user
+import copy
 passed = []
 once = False
 class Match:
@@ -8,15 +9,12 @@ class Match:
 
         matches = []
 
-        match_data = kwargs[0]
+        match_data = args[1]
 
         target = args[0]
         
         matchedData = [] 
 
-
-        #return a dict of keys that are the user's interests
-        modified_user = transform_user(_self, 'interest')   
 
         for user in match_data: #NOTE: change this later!!
             matched=[]
@@ -28,7 +26,7 @@ class Match:
                     user['matchedPercentage']=((len(matched)+1)/(len(user.get('interests'))+2)+(len(matched)+1)/(len(target)+2))/2
                     user['matchedAttributes']=matched
                     matchedData.append(user)
-                    break
+                    
         matchedData.sort(key=lambda x: x.get('matchedPercentage'), reverse=True)
 
         for x in matchedData: #to remove duplicate dictionaries from list
@@ -85,6 +83,6 @@ class Match:
             "matched": cleaned_matches,
         }
         return results
-
-print(Match.complex_match())
-print(Match.quick_match())
+li = [1,3,5]
+print(Match.complex_match(li, test))
+#print(Match.quick_match())
