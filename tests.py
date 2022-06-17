@@ -1,6 +1,7 @@
 from match import Match
 
-test = {
+#NOTE: quick_match and complex_match require different data structure preconditions
+test2 = {
     "3": [
         {
             "id": 32589021,
@@ -31,7 +32,7 @@ test = {
         }
     ]
 }  
-test2 = [
+test = [
         {
             "id": 32589021,
             "username": "dragolla",
@@ -75,6 +76,6 @@ __self = {
         }
     ]
 }
-
+target = [1,3,5]
 #print(Match.complex_match(__self, test)) 
-print(Match.complex_match)
+print(Match.complex_match(target, test))

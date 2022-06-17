@@ -83,6 +83,3 @@ class Match:
             "matched": cleaned_matches,
         }
         return results
-li = [1,3,5]
-print(Match.complex_match(li, test))
-#print(Match.quick_match())
