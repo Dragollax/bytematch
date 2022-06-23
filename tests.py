@@ -6,7 +6,6 @@ test2 = {
         {
             "id": 32589021,
             "username": "dragolla",
-            "profile_image": "https://weco-static.s3.amazonaws.com/profilepicture.jpg",
             "interests": [
                 1,
                 3
@@ -21,7 +20,6 @@ test2 = {
         {
             "id": 578172410,
             "username": "teststs",
-            "profile_image": "https://weco-static.s3.amazonaws.com/profilepicture.jpg",
             "interests": [
                 5
             ],
@@ -36,7 +34,6 @@ test = [
         {
             "id": 32589021,
             "username": "dragolla",
-            "profile_image": "https://weco-static.s3.amazonaws.com/profilepicture.jpg",
             "interests": [
                 1,
                 3
@@ -50,7 +47,6 @@ test = [
         {
             "id": 578172410,
             "username": "teststs",
-            "profile_image": "https://weco-static.s3.amazonaws.com/profilepicture.jpg",
             "interests": [
                 5
             ],
@@ -60,22 +56,6 @@ test = [
             ]
         }
 ]
-__self = {
-        "5": [
-        {
-            "id": 578172410,
-            "username": "teststs",
-            "profile_image": "https://weco-static.s3.amazonaws.com/profilepicture.jpg",
-            "interests": [
-                5
-            ],
-            "biography": "",
-            "tags": [
-                "coding"
-            ]
-        }
-    ]
-}
-target = [1,3,5]
-#print(Match.complex_match(__self, test)) 
-print(Match.complex_match(target, test))
+target = [3]
+#print(Match.complex_match(target, test))
+print(Match.quick_match(target, test2)) 

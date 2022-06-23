@@ -1,7 +1,3 @@
-from transform import transform_user
-import copy
-from transform import transform_user
-import copy
 passed = []
 once = False
 class Match:
@@ -39,7 +35,7 @@ class Match:
         
     def quick_match(*args,  **kwargs):
         #data group for matching
-        match_data = kwargs[0]
+        match_data = args[1]
         #target for matching, shouyld be in list data structure
         target = args[0]
         i = 0 #will be used to iterate through interests
@@ -52,7 +48,7 @@ class Match:
             #matchedInterests = []
             if once == False:
                 once = True
-                length = len(test2)
+                length = len(match_data)
             
             if int(target[i]) == int(list(match_data.keys())[j]): #if the j'th value of inverted_group is equal to the i'th value of current_user
                 j += 1
